@@ -14,20 +14,25 @@ const ingredients = [
 // Добавит элементу класс item.
 // После чего вставит все <li> за одну операцию в список ul.ingredients.
 
+const ulEl = document.getElementById("ingredients");
+
+const arrayEl = [];
 
 ingredients.forEach(ingredient => {
 
   const liEl = document.createElement('li');
   liEl.classList.add('item');
-  
   liEl.textContent = ingredient;
-  console.log(liEl);
+  // console.log(liEl);
 
-  document.getElementById("ingredients").append(liEl);
-  console.log(ingredients);
+  arrayEl.push(liEl);
 
 });
 
+ ulEl.append(...arrayEl);
+console.log(ulEl);
+
+ 
 
 // const ulEl = document.getElementById("ingredients");
 
