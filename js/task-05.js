@@ -12,9 +12,15 @@ const nameOutput = document.querySelector('#name-output');
 
 console.log(nameInput, nameOutput);
 
-nameInput.addEventListener('input', (event) => {
- nameOutput.textContent = event.currentTarget.value;
-    // nameInput === '' ? "Anonymous" : nameOutput.textContent;
-    // console.log(nameInput)
-});
 
+nameInput.addEventListener('input', onFormSubmit);
+function onFormSubmit(event) {
+event.target.value == "" ? nameOutput.textContent = "Anonymous" : nameOutput.textContent = event.target.value;
+}
+
+
+// nameInput.addEventListener('input', (event) => {
+//  nameOutput.textContent = event.currentTarget.value;
+//     nameInput === '' ? "Anonymous" : nameOutput.textContent;
+//     console.log(nameInput)
+// });

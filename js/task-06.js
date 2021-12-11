@@ -13,28 +13,52 @@
 
 
 
-let inputEl = document.querySelector('#validation-input');
-console.log(inputEl);
-let inputLength = inputEl.dataset.length;
-console.log(inputLength);
+// let inputEl = document.querySelector('#validation-input');
+// console.log(inputEl);
+// let inputLength = inputEl.dataset.length;
+// console.log(inputLength);
 
 
-// inputEl.addEventListener('blur', onInputBlur);
+// inputEl.addEventListener('focus', onFocus);
+// inputEl.addEventListener('blur', onBlur);
 
-// function onInputBlur() {
-//     console.log('Lose focus - blur')
+
+// function onFocus(event) {
+// };
+//   function onBlur(event) {
+
+//   if (event.currentTarget.value.length !== inputLength) {
+//     event.currentTarget.classList.add('valid');
+//     event.currentTarget.remove('invalid');
+//   } else {
+//     event.currentTarget.remove('invalid');
+//     event.currentTarget.classList.add('valid');
+//   }
 // }
 
 
 
-inputEl.addEventListener('blur', el => {
-  const text = el.currentTarget.value;
+// inputEl.addEventListener('blur', el => {
+//   const text = el.currentTarget.value;
 
-  if (text.length === inputLength) {
-    inputEl.classList.add('valid');
-    inputEl.classList.remove('invalid');
-  } else {
-    inputEl.classList.remove('valid');
-    inputEl.classList.add('invalid');
-  }
-});
+//   if (text.length === inputLength) {
+//     inputEl.classList.add('valid');
+//     inputEl.classList.remove('invalid');
+//   } else {
+//     inputEl.classList.remove('valid');
+//     inputEl.classList.add('invalid');
+//   }
+// })
+
+
+const valInEl = document.getElementById('validation-input');
+const inputLength = valInEl.getAttribute('data-length');
+  
+valInEl.addEventListener('blur', checkVal);
+
+function checkVal(input) {
+
+  input.currentTarget.value.length !== parseInt(inputLength) ?
+    valInEl.classList = "invalid" :
+    valInEl.classList = "valid";
+}
